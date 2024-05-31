@@ -18,10 +18,10 @@ export default function TestPage() {
         num: 1,
       });
       setQuestion(response.data.question);
-      setAnswer1(response.data.answer[0]);
-      setAnswer2(response.data.answer[1]);
-      setAnswer3(response.data.answer[2]);
-      setAnswer4(response.data.answer[3]);
+      setAnswer1(response.data.choices[0]);
+      setAnswer2(response.data.choices[1]);
+      setAnswer3(response.data.choices[2]);
+      setAnswer4(response.data.choices[3]);
     } catch (error) {
       console.error(error);
     }
