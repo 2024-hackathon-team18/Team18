@@ -2,11 +2,21 @@ import quitbtn from '../assets/QuitBtn.png';
 import imgaddbtn from '../assets/ImgAddBtn.png';
 import { useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
+import axios from 'axios';
 
 export default function InputModal({ setisModal }: any) {
   const navigate = useNavigate();
   const modalclose = () => {
     setisModal(false);
+  };
+  const callApi = async () => {
+    try {
+      await axios.post('/question', {
+        num: 1,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
   const goNext = () => {
     navigate('/test');
