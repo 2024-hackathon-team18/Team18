@@ -25,11 +25,11 @@ class QuestonAPIView(APIView):
         problem = gpt_generate_question(text)
         question, choices = extract_question_choices(problem)
 
-        # question = Question.objects.create(text=question)
+        save_question = Question.objects.create(text=question)
     
         # Choice 저장
-        # for choice_text in choices:
-        #     Choice.objects.create(question=question, text=choice_text)
+        for choice_text in choices:
+            Choice.objects.create(question=save_question, text=choice_text)
 
         return Response({"question": question,
                          "choices": choices}, status=status.HTTP_200_OK)
