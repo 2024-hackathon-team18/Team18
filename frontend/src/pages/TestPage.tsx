@@ -11,7 +11,7 @@ export default function TestPage() {
   const [answer4, setAnswer4] = useState([]);
   const [userAnswer, setUserAnswer] = useState('');
   const handleClick = () => {
-    navigate('/result');
+    navigate('/test2');
   };
   const callApi = async () => {
     try {
