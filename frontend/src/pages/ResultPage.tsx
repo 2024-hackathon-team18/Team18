@@ -59,7 +59,7 @@ export default function ResultPage() {
           <p className="bg-white w-[100%]  p-[10px]">1. 데드락 발생 조건을 분석하여 회피하기</p>
           <p className="bg-white w-[100%]  p-[10px]">2. 락을 사용하여 상호배제 구현하기</p>
           <p className="bg-white w-[100%]  p-[10px]">3. 경쟁 조건이 발생할 수 있는 코드를 병렬 실행하기</p>
-          <p className="bg-white w-[100%]  p-[10px]">4. 순환 대기 발생 가능성 없도록 락의 획득 순서 정하기</p>
+          <p className="bg-white w-[100%]  p-[10px]">4. 순환 대기 발생 가능성 없도록 락의 획득 순서를 정해야 한다.</p>
         </div>
       </div>
     </div>
