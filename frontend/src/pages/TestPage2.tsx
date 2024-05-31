@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-export default function TestPage() {
+export default function TestPage2() {
     const navigate = useNavigate();
     const handleClick = () => {
-        navigate('/result')
+        navigate('/test3')
     }
     return (
       <div className="bg-[#FFFFFF] flex flex-col pt-10 px-10 h-[100hv] w-[100wv] box-sizing-border">
@@ -20,23 +20,22 @@ export default function TestPage() {
   
         {/* 진행률 바 */}
         <div className="rounded-[8.5px] bg-[#D9D9D9] relative w-[100wv] h-[100hv] box-sizing-border">
-            <div className="rounded-[8.5px] bg-[#1366DE] w-[280px] h-[17px]"></div>
+          <div className="rounded-[8.5px] bg-[#1366DE] w-[560px] h-[17px]"></div>
         </div>
-
   
         {/* 문제 영역 */}
         <div className="bg-[#E5E8EA] relative mt-10 pl-5 w-[content-fit] h-[80px] box-sizing-border flex justify-left items-center">
-            <span className="break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.375] text-[#111111]">문제1. 다음 중 어떤 상황에서 교착 상태(deadlock)가 발생할 수 있는가?</span>
+            <span className="break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.375] text-[#111111]">문제 1. 가나다라마바사 아자차카타파하</span>
         </div>
 
 
   
             {/* 문제 내용 */}
         <div className="my-20">    
-            <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#1366DE] mr-4">1. 두 개 이상의 쓰레드가 순환 대기하는 경우</div>
-            <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">2. 한 쓰레드가 자원을 독점적으로 사용하는 경우</div>
-            <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">3. 다수의 쓰레드가 일시적으로 자원을 대기하는 경우</div>
-            <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">4. 자원을 임자하는 쓰레드가 다른 쓰레드에게 자원을 넘겨주지 않는 경우</div>
+            <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#1366DE] mr-4">1. 가나다라마바사 아자차카타파하</div>
+            <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">2. 가나다라마바사 아자차카타파하</div>
+            <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">3. 가나다라마바사 아자차카타파하</div>
+            <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">4. 가나다라마바사 아자차카타파하</div>
         </div>
             
         {/* 버튼 영역 */}
