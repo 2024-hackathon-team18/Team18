@@ -9,6 +9,7 @@ export default function TestPage() {
   const [answer2, setAnswer2] = useState([]);
   const [answer3, setAnswer3] = useState([]);
   const [answer4, setAnswer4] = useState([]);
+  const [userAnswer, setUserAnswer] = useState('');
   const handleClick = () => {
     navigate('/result');
   };
@@ -25,6 +26,32 @@ export default function TestPage() {
     } catch (error) {
       console.error(error);
     }
+  };
+  const usecallAnswerApi = async () => {
+    try {
+      const response = await axios.post('/question/answer', {
+        answer: userAnswer,
+      });
+      alert(response.data.message);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const setuserAnswer = () => {
+    setUserAnswer('a');
+    usecallAnswerApi();
+  };
+  const setuserAnswer2 = () => {
+    setUserAnswer('b');
+    usecallAnswerApi();
+  };
+  const setuserAnswer3 = () => {
+    setUserAnswer('c');
+    usecallAnswerApi();
+  };
+  const setuserAnswer4 = () => {
+    setUserAnswer('d');
+    usecallAnswerApi();
   };
   useEffect(() => {
     callApi();
@@ -70,18 +97,30 @@ export default function TestPage() {
 
       {/* 문제 내용 */}
       <div className="my-20">
-        <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#1366DE] mr-4">
-          {answer1}
-        </div>
-        <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">
-          {answer2}
-        </div>
-        <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">
-          {answer3}
-        </div>
-        <div className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4">
-          {answer4}
-        </div>
+        <button
+          onClick={setuserAnswer}
+          className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4"
+        >
+          1. {answer1}
+        </button>
+        <button
+          onClick={setuserAnswer2}
+          className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4"
+        >
+          2. {answer2}
+        </button>
+        <button
+          onClick={setuserAnswer3}
+          className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4"
+        >
+          3. {answer3}
+        </button>
+        <button
+          onClick={setuserAnswer4}
+          className="mx-10 my-10 inline-block self-start break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[48px] leading-[0.5] text-[#111111] mr-4"
+        >
+          4. {answer4}
+        </button>
       </div>
 
       {/* 버튼 영역 */}
