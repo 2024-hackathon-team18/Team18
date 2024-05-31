@@ -1,9 +1,14 @@
 import quitbtn from '../assets/QuitBtn.png';
 import imgaddbtn from '../assets/ImgAddBtn.png';
+import { useNavigate } from 'react-router-dom';
 
 export default function InputModal({ setisModal }: any) {
+  const navigate = useNavigate();
   const modalclose = () => {
     setisModal(false);
+  };
+  const goNext = () => {
+    navigate('/test');
   };
   return (
     <div className="bg-[#FFFFFF] flex w-[100vw] h-[100vh] box-sizing-border z-10 bg-opacity-90 fixed">
@@ -59,7 +64,10 @@ export default function InputModal({ setisModal }: any) {
             className="shadow-[0px_0px_5.5px_0px_rgba(0,0,0,0.25)] rounded-[4px] bg-[#FFFFFF] relative m-[0_17px_102px_17px] flex flex-row justify-between self-start p-[15px_19.3px_15px_16px] w-[284px] box-sizing-border"
           ></input>
           <div className="flex flex-row self-end w-[272px] box-sizing-border">
-            <button className="items-center justify-center  rounded-[4px] bg-[#1366DE] relative m-[0_20px_0_0] flex p-[10px_0_10px_0.9px] w-[126px] box-sizing-border">
+            <button
+              onClick={goNext}
+              className="items-center justify-center  rounded-[4px] bg-[#1366DE] relative m-[0_20px_0_0] flex p-[10px_0_10px_0.9px] w-[126px] box-sizing-border"
+            >
               <span className="break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[16px] leading-[1.5] text-[#FFFFFF]">
                 다음으로
               </span>
