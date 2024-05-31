@@ -1,6 +1,7 @@
 import quitbtn from '../assets/QuitBtn.png';
 import imgaddbtn from '../assets/ImgAddBtn.png';
 import { useNavigate } from 'react-router-dom';
+import { useRef, useState } from 'react';
 
 export default function InputModal({ setisModal }: any) {
   const navigate = useNavigate();
@@ -9,6 +10,15 @@ export default function InputModal({ setisModal }: any) {
   };
   const goNext = () => {
     navigate('/test');
+  };
+  const [uploadedImages, setUploadedImages] = useState<any>([]);
+  const fileInputRef = useRef(null);
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+    setUploadedImages(files);
+  };
+  const handleImageUpload = async () => {
+    if (fileInputRef.current) (fileInputRef.current as HTMLInputElement).click();
   };
   return (
     <div className="bg-[#FFFFFF] flex w-[100vw] h-[100vh] box-sizing-border z-10 bg-opacity-90 fixed">
@@ -21,13 +31,24 @@ export default function InputModal({ setisModal }: any) {
             <img onClick={modalclose} src={quitbtn} className="w-[22.9px] h-[22.9px] cursor-pointer" />
           </div>
           <div className="flex items-center flex-col">
-            <div className="mt-[50px] inline-block self-center break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[24px] leading-[1] text-[#111111]">
-              파일을 첨부해주세요
-            </div>
+            {uploadedImages.length === 0 ? (
+              <div className="mt-[50px] inline-block self-center break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[24px] leading-[1] text-[#111111]">
+                파일을 첨부해주세요
+              </div>
+            ) : (
+              <div className="mt-[50px] inline-block self-center break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[24px] leading-[1] text-[#111111]">
+                강의록8. 병행성: 세마포어, 데드락 (1).pdf
+              </div>
+            )}
+
             <div className="mt-[20px] mb-[20px] inline-block self-center break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[12px] leading-[2] text-[#B6B8B8]">
               또는
             </div>
-            <button className="rounded-[4px] bg-[#1366DE] flex flex-row p-[19px_0_18.9px_0] w-[253px] box-sizing-border">
+            <input style={{ display: 'none' }} type="file" accept="*" onChange={handleImageChange} ref={fileInputRef} />
+            <button
+              onClick={handleImageUpload}
+              className="rounded-[4px] bg-[#1366DE] flex flex-row p-[19px_0_18.9px_0] w-[253px] box-sizing-border"
+            >
               <div className="flex justify-center items-center w-[100%] h-[18px] box-sizing-border gap-[10px]">
                 <img src={imgaddbtn} className="w-[18px] h-[18px]" />
                 <span className="text-white">파일추가하기</span>
@@ -35,7 +56,7 @@ export default function InputModal({ setisModal }: any) {
             </button>
           </div>
 
-          <div className="flex flex-row mt-[20px] ml-[20px]">
+          <div className="flex flex-row mt-[60px] ml-[20px]">
             <div className="flex flex-col w-[100%] box-sizing-border">
               <span className="w-[420px] break-words font-['The_Jamsil_OTF','Roboto_Condensed'] font-normal text-[16px] leading-[1.5] text-[#111111] mb-[10px]">
                 시작하는 페이지
@@ -61,7 +82,7 @@ export default function InputModal({ setisModal }: any) {
           </div>
           <input
             placeholder="원하는 문제의 갯수를 숫자로 적어주세요"
-            className="shadow-[0px_0px_5.5px_0px_rgba(0,0,0,0.25)] rounded-[4px] bg-[#FFFFFF] relative m-[0_17px_102px_17px] flex flex-row justify-between self-start p-[15px_19.3px_15px_16px] w-[284px] box-sizing-border"
+            className="shadow-[0px_0px_5.5px_0px_rgba(0,0,0,0.25)] rounded-[4px] bg-[#FFFFFF] relative m-[0_17px_20px_17px] flex flex-row justify-between self-start p-[15px_19.3px_15px_16px] w-[284px] box-sizing-border"
           ></input>
           <div className="flex flex-row self-end w-[272px] box-sizing-border">
             <button
